@@ -9,7 +9,7 @@ const Page = ({component, layout, ...restProps}) => {
         if (layout !== activeLayout) {
             setActiveLayout(layout);
         }
-    }, [layout]);
+    }, [activeLayout, layout, setActiveLayout]);
 
     const PageComponent = component;
 

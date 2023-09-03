@@ -1,7 +1,12 @@
 {
   "sidebar": {
     "menu": {
-      "home": "HOME"
+      "home": "HOME",
+      "inventory": "INVENTORY",
+      "salesOrders": "SALES & ORDERS",
+      "contacts": "CONTACTS",
+      "aiAssistance": "AI ASSISTANCE",
+      "userManagement": "USER MANAGEMENT"
     },
     "menuItem": {
       "sample": "Sample",
@@ -113,7 +118,18 @@
       "transferList": "Transfer List",
       "transitions": "Transitions",
       "treeViews": "Tree view",
-      "typography": "Typography"
+      "typography": "Typography",
+      "dashboard": "Dashboard",
+      "myShops": "My Shops",
+      "inventory": "Inventory",
+      "category": "Category",
+      "products": "Products",
+      "sales": "Sales",
+      "orders": "Orders",
+      "createOrders": "Create Orders",
+      "customers": "Customers",
+      "myAI": "My AI",
+      "leads":"Leads"      
     }
   },
   "widgets": {
@@ -264,7 +280,8 @@
       "callOuts": "CallOuts",
       "pricePlan": "Price Plan",
       "projects": "Projects",
-      "users": "Users"
+      "users": "Users",
+      "myShops":"My Shops"
     }
   }
 }
