@@ -1,5 +1,5 @@
 const express = require('express');
-const {createShopController,getAllShopsController} = require('../controller/shop'); 
+const { createShopController, getAllShopsController, getShopsByUserIdController, getShopByIdController } = require('../controller/shop');
 const { addShopLogoController, upload: uploadLogo } = require('../controller/logo');
 const { addCoverImageController, upload: uploadCoverImage } = require('../controller/cover');
 const router = express.Router();
@@ -238,5 +238,48 @@ router.post('/:shopId/logo', uploadLogo, addShopLogoController);
  */
 router.post('/cover/:shopId', uploadCoverImage, addCoverImageController);
 
+/**
+ * @swagger
+ * /shop/user/{userId}:
+ *   get:
+ *     summary: Get all shops by user ID
+ *     tags: [Shop]
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: List of shops retrieved successfully
+ *       404:
+ *         description: No shops found for the given user ID
+ *       500:
+ *         description: Server error
+ */
+router.get('/user/:userId', getShopsByUserIdController);
+
+/**
+ * @swagger
+ * /shop/{shopId}:
+ *   get:
+ *     summary: Get a shop by its ID
+ *     tags: [Shop]
+ *     parameters:
+ *       - name: shopId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Shop retrieved successfully
+ *       404:
+ *         description: Shop not found
+ *       500:
+ *         description: Server error
+ */
+router.get('/:shopId', getShopByIdController);
 
 module.exports = router;

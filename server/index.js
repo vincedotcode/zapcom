@@ -3,6 +3,8 @@ const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const authRoutes = require('./routes/auth');
 const shopRoutes = require('./routes/shop');
+const productCategoryRoutes = require('./routes/productCategory');
+const productRoutes = require('./routes/product');
 const connectDB = require('./config/db');
 const app = express();
 
@@ -32,6 +34,8 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Authentication routes
 app.use('/auth', authRoutes);
 app.use('/shop', shopRoutes);
+app.use('/product-category', productCategoryRoutes);
+app.use('/product', productRoutes);
 
 app.listen(5000, () => {
     console.log('Server running on http://localhost:5000');
