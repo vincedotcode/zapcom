@@ -1,4 +1,4 @@
-const productService = require('../service/product/product');
+const productService = require('../../service/product/product');
 
 
 const addProductController = async (req, res) => {
@@ -44,8 +44,22 @@ const getAllProducts = async (req, res) => {
     }
 };
 
+const deleteProductController = async (req, res) => {
+    try {
+        const { productId } = req.params;
+
+        const response = await productService.deleteProduct(productId);
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
 module.exports = {
     addProductController,
     getProductsByUserIdController,
-    getAllProducts
+    getAllProducts,
+    deleteProductController
 };

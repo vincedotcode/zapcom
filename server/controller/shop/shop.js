@@ -1,5 +1,5 @@
-const createShop = require('../service/shop/createShop');
-const {  getAllShops, getShopsByUserId, getShopById } = require('../service/shop/getAllShops');
+const createShop = require('../../service/shop/createShop');
+const {  getAllShops, getShopsByUserId, getShopById } = require('../../service/shop/getAllShops');
 
 
 

@@ -1,5 +1,5 @@
-const registerUser = require('../service/registerUser');
-const loginUser = require('../service/loginUser'); 
+const registerUser = require('../../service/registerUser');
+const loginUser = require('../../service/loginUser'); 
 
 // Existing register user controller
 const registerUserController = async (req, res) => {

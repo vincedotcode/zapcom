@@ -1,7 +1,7 @@
 const express = require('express');
-const { createShopController, getAllShopsController, getShopsByUserIdController, getShopByIdController } = require('../controller/shop');
-const { addShopLogoController, upload: uploadLogo } = require('../controller/logo');
-const { addCoverImageController, upload: uploadCoverImage } = require('../controller/cover');
+const { createShopController, getAllShopsController, getShopsByUserIdController, getShopByIdController } = require('../controller/shop/shop');
+const { addShopLogoController, upload: uploadLogo } = require('../controller/shop/logo');
+const { addCoverImageController, upload: uploadCoverImage } = require('../controller/shop/cover');
 const router = express.Router();
 
 /**

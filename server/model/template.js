@@ -6,11 +6,6 @@ const templateImageSchema = new mongoose.Schema({
 });
 
 const templateSchema = new mongoose.Schema({
-  shopId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Shop',
-    required: true,
-  },
   title: {
     type: String,
     required: true,
