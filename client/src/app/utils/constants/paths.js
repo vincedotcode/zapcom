@@ -3,3 +3,4 @@ export const ASSET_AVATARS = ASSET_IMAGES + "/avatar";
 export const ASSET_LOGOS = ASSET_IMAGES + "/logos";
 export const USE_IMAGE_PLACEHOLDERS = false;
 export const SHOP_LOGOS = ASSET_IMAGES + "/shops";
+export const PRODUCT_IMAGES = ASSET_IMAGES + "/products";

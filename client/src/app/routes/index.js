@@ -5,6 +5,7 @@ import Page from "@jumbo/shared/Page";
 import { muiRoutes } from "./muiRoutes";
 import DragAndDrop from "app/pages/dnd/DragAndDrop";
 import MyShops from "app/pages/Shops/myshops";
+import Products from "app/pages/Products/products";
 /**
  routes which you want to make accessible to both authenticated and anonymous users
  **/
@@ -21,6 +22,10 @@ const routesForPublic = [
     {
         path: "/inventory/my-shops",
         element: <Page component={MyShops} />
+    },
+    {
+        path: "/inventory/products",
+        element: <Page component={Products} />
     },
 
     // ...dashboardRoutes,

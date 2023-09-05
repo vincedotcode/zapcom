@@ -7,50 +7,55 @@ import Typography from "@mui/material/Typography";
 import JumboDdMenu from "@jumbo/components/JumboDdMenu";
 
 
-const ShopCell = props => {
+const ProductCell = props => {
 
-    const {shop} = props;
-    // const [starred, setStarred] = useState(shop.starred);
+    const {product} = props;
+    // const [starred, setStarred] = useState(product.starred);
 
 
-    const {name, logo, ownerName, products, orders, status} = shop;
+    const {name, group, image, productType, shop,unitPrice, status,qty} = product;
 
     return (
 
         <TableRow>
            
             <TableCell width={"6%"}>
-                {logo === null || logo === '' ? (
+                {image === null || image === '' ? (
                     <Avatar variant="square" sx={{height: 44, width: 44}}>{name.charAt(0).toUpperCase()}</Avatar>
                 ) : (
-                    <Avatar variant="square" sx={{height: 44, width: 44}} alt={name} src={logo}/>
+                    <Avatar variant="square" sx={{height: 44, width: 44}} alt={name} src={image}/>
                 )}
             </TableCell>
             <TableCell width={"15%"}>
                 <Typography variant={"h6"} mb={0}>{name}</Typography>
             </TableCell>
             <TableCell width={"20%"}>
-                <Typography variant={"h6"} mb={0}>{ownerName}</Typography>
+                <Typography variant={"h6"} mb={0}>{group}</Typography>
             </TableCell>
             <TableCell width={"15%"}>
-                <Typography variant={"h6"} mb={0}>{products}</Typography>
+                <Typography variant={"h6"} mb={0}>{shop}</Typography>
             </TableCell>
             <TableCell width={"15%"}>
-                <Typography variant={"h6"} mb={0}>{orders}</Typography>
+                <Typography variant={"h6"} mb={0}>{productType}</Typography>
             </TableCell>
-            <TableCell width={"4%"}>
-                {status==='Open'?( <Chip label={status} size={'small'} color={'warning'} sx={{mb: 1}} />):( <Chip label={status} size={'small'} color={'success'} sx={{mb: 1}} />)}
            
-                
+            <TableCell width={"4%"}>
+               
+                <Typography variant={"h6"} mb={0}>{unitPrice}</Typography>
             </TableCell>
             <TableCell width={"4%"}>
-                <JumboDdMenu menuItems={menuItems}/>
+               
+               <Typography variant={"h6"} mb={0}>{qty}</Typography>
+           </TableCell>
+            <TableCell width={"4%"}>
+            {status==='Published'?( <Chip label={status} size={'small'} color={'success'} sx={{mb: 1}} />):( <Chip label={status} size={'small'} color={'error'} sx={{mb: 1}} />)}
+
             </TableCell>
         </TableRow>
     );
 };
 
-export default SortableElement(ShopCell);
+export default SortableElement(ProductCell);
 
 const menuItems = [
     {
