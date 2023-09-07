@@ -2,8 +2,11 @@ const express = require('express');
 const {
     addProductController,
     getProductsByUserIdController,
-    getAllProducts
-} = require('../controller/product');
+    getAllProducts,
+    deleteProductController,
+} = require('../controller/product/product');
+const { addProductImageController, upload: uploadProductImage } = require('../controller/product/productImage');
+
 
 const router = express.Router();
 /**
@@ -139,5 +142,85 @@ router.get('/user/:userId', getProductsByUserIdController);
  *         description: Server error
  */
 router.get('/get', getAllProducts);
+
+
+/**
+ * @swagger
+ * /product/addImage/{productId}:
+ *   post:
+ *     summary: Add image to a product
+ *     tags: [Products]
+ *     parameters:
+ *       - in: path
+ *         name: productId
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The ID of the product to which the image is being added.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *                 description: The image file to upload.
+ *     responses:
+ *       200:
+ *         description: Product image added successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Product image added successfully
+ *       500:
+ *         description: Server error, could not add the product image.
+ */
+router.post('/addImage/:productId/', uploadProductImage, addProductImageController);
+
+
+/**
+ * @swagger
+ * /product/{productId}/delete:
+ *   delete:
+ *     summary: Delete a product
+ *     tags: [Products]
+ *     parameters:
+ *       - in: path
+ *         name: productId
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Unique identifier of the product to delete
+ *     responses:
+ *       200:
+ *         description: Product deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Product deleted successfully"
+ *       400:
+ *         description: Bad request (e.g., missing parameters)
+ *       404:
+ *         description: Product not found or the user does not have permission to delete this product
+ *       500:
+ *         description: Server error
+ */
+
+
+router.delete('/:productId/delete', deleteProductController);
 
 module.exports = router;

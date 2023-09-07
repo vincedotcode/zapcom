@@ -63,6 +63,7 @@ const shopSchema = new mongoose.Schema({
   aboutMeImage: imageSchema,
   name: String,
   address: addressSchema,
+  deploymentUrl: String,
   description: String,
   cover_image: imageSchema,
   logo: imageSchema,

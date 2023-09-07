@@ -1,4 +1,4 @@
-const addCoverImage = require('../service/shop/coverShop');
+const addCoverImage = require('../../service/shop/coverShop');
 const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage }).single('file');
