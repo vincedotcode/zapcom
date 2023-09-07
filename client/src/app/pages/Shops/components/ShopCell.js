@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {SortableElement} from 'react-sortable-hoc';
-import { TableCell, TableRow,Chip} from "@mui/material";
+import { TableCell, TableRow,Chip,Link} from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
+import {Link as RouterLink} from "react-router-dom";
 
 import JumboDdMenu from "@jumbo/components/JumboDdMenu";
 
@@ -13,7 +14,7 @@ const ShopCell = props => {
     // const [starred, setStarred] = useState(shop.starred);
 
 
-    const {name, logo, ownerName, products, orders, status} = shop;
+    const {name, logo, ownerName, products, orders, status,id} = shop;
 
     return (
 
@@ -27,7 +28,10 @@ const ShopCell = props => {
                 )}
             </TableCell>
             <TableCell width={"15%"}>
+            <Link underline={"none"} component={RouterLink} to={`${id}`}>
+
                 <Typography variant={"h6"} mb={0}>{name}</Typography>
+                </Link>
             </TableCell>
             <TableCell width={"20%"}>
                 <Typography variant={"h6"} mb={0}>{ownerName}</Typography>

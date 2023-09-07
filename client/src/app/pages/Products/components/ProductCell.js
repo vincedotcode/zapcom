@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
 import {SortableElement} from 'react-sortable-hoc';
-import { TableCell, TableRow,Chip} from "@mui/material";
+import { TableCell, TableRow,Chip,Link} from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-
-import JumboDdMenu from "@jumbo/components/JumboDdMenu";
-
 
 const ProductCell = props => {
 
@@ -13,7 +10,7 @@ const ProductCell = props => {
     // const [starred, setStarred] = useState(product.starred);
 
 
-    const {name, group, image, productType, shop,unitPrice, status,qty} = product;
+    const {name, group, image, productType, shop,unitPrice, status,qty,id} = product;
 
     return (
 
@@ -27,7 +24,9 @@ const ProductCell = props => {
                 )}
             </TableCell>
             <TableCell width={"15%"}>
-                <Typography variant={"h6"} mb={0}>{name}</Typography>
+            <Typography variant={"h6"} mb={0}>{name}</Typography>
+           
+               
             </TableCell>
             <TableCell width={"20%"}>
                 <Typography variant={"h6"} mb={0}>{group}</Typography>
@@ -57,13 +56,3 @@ const ProductCell = props => {
 
 export default SortableElement(ProductCell);
 
-const menuItems = [
-    {
-        title: "View",
-        slug: "view",
-    },
-    {
-        title: "Disapprove Shop",
-        slug: "disShop",
-    }
-]
