@@ -7,6 +7,7 @@ import DragAndDrop from "app/pages/dnd/DragAndDrop";
 import MyShops from "app/pages/Shops/myshops";
 import Products from "app/pages/Products/products";
 import ShopDetails from "app/pages/Shops/ShopDetails";
+import Login from "app/pages/Authentication/Login/Login";
 /**
  routes which you want to make accessible to both authenticated and anonymous users
  **/
@@ -32,7 +33,10 @@ const routesForPublic = [
         path: "inventory/my-shops/:shopId", 
         element:<Page component={ShopDetails}/>
     },
-
+    {
+        path: "/login", 
+        element:<Page component={Login} layout={"solo-page"}/>
+    },
 
     // ...dashboardRoutes,
 ];

@@ -25,14 +25,7 @@ const JumboLayout = (props) => {
             return sidebarOptions?.minWidth;
         }
         return sidebarOptions?.open ? sidebarOptions?.width : 0;
-    }, [
-        sidebarOptions?.open,
-        sidebarOptions?.width,
-        sidebarOptions?.minWidth,
-        sidebarOptions?.view,
-        sidebarOptions?.style,
-        sidebarOptions?.variant,
-    ]);
+    }, [sidebarOptions?.open, sidebarOptions?.width, sidebarOptions?.minWidth, sidebarOptions?.view, sidebarOptions?.variant]);
 
     const headerHeightProps = React.useMemo(() => {
         if (props?.headerSx?.height) {
