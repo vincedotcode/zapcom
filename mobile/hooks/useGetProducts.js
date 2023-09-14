@@ -8,7 +8,7 @@ const useGetProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://10.0.2.2:5000/product/get');
+        const response = await fetch('https://zapcom.onrender.com/product/get');
         const result = await response.json();
         setProducts(result.data.data);
         setLoading(false);

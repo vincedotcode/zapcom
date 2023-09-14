@@ -4,6 +4,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { themeColors } from '../theme';
 import { useNavigation } from '@react-navigation/native';
 import useGetProducts from '../hooks/useGetProducts';
+import BottomBar from '../components/BottomBar'; 
+
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -26,29 +28,22 @@ export default function HomeScreen() {
       <View style={{ padding: 20 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
           <Text style={{ fontSize: 24, fontFamily: "Poppins_700Bold" }}>Marketplace</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-            <Image source={{ uri: "https://placehold.co/600x400" }} style={{ width: 30, height: 30 }} />
-          </TouchableOpacity>
+         
         </View>
 
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginTop: 20 }}>
-          {categories.map((category) => (
-            <View key={category} style={{ marginHorizontal: 10 }}>
-              <Text style={{ fontFamily: "Poppins_500Medium", fontSize: 16 }}>{category}</Text>
-            </View>
-          ))}
-        </ScrollView>
-
+       
         <View style={styles.productsContainer}>
           {products.map((product) => (
             <View key={product._id} style={styles.productCard}>
               <Image source={{ uri: product.images[0]?.url }} style={styles.productImage} />
               <Text style={styles.productName}>{product.name}</Text>
-              <Text style={styles.productPrice}>${product.price}</Text>
+              <Text style={styles.productPrice}>Rs {product.price}</Text>
+              <Text style={styles.productDescription}> {product.description}</Text>
             </View>
           ))}
         </View>
       </View>
+  
     </SafeAreaView>
   );
 }
@@ -60,7 +55,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   productCard: {
-    width: '30%',
+    width: '40%',
     margin: '1.666%',
     backgroundColor: 'white',
     borderRadius: 10,
@@ -73,6 +68,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   productName: {
+    fontFamily: "Poppins_400Regular",
+    fontSize: 14,
+    marginTop: 10,
+  },
+  productDescription : {
     fontFamily: "Poppins_400Regular",
     fontSize: 14,
     marginTop: 10,
