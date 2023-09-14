@@ -37,7 +37,7 @@ app.use('/shop', shopRoutes);
 app.use('/product-category', productCategoryRoutes);
 app.use('/product', productRoutes);
 
-app.listen(5000, () => {
-    console.log('Server running on http://localhost:5000');
-    console.log('Docs running on http://localhost:5000/docs')
+app.listen(9090, () => {
+    console.log('Server running on http://localhost:9090');
+    console.log('Docs running on http://localhost:9090/docs')
 });
