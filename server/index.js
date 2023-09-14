@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
 
-
+const PORT = process.env.PORT || 4000;
 const swaggerOptions = {
     swaggerDefinition: {
         openapi: '3.0.0',
@@ -37,7 +37,6 @@ app.use('/shop', shopRoutes);
 app.use('/product-category', productCategoryRoutes);
 app.use('/product', productRoutes);
 
-app.listen(9090, () => {
-    console.log('Server running on http://localhost:9090');
-    console.log('Docs running on http://localhost:9090/docs')
+app.listen(PORT, () => {
+    console.log('Server running ' + PORT);
 });
