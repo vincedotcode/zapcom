@@ -1,5 +1,5 @@
 const productService = require('../../service/product/product');
-
+const ProductRecommendationService = require('../../service/product/productRecommendationService');
 
 const addProductController = async (req, res) => {
     try {
@@ -57,9 +57,29 @@ const deleteProductController = async (req, res) => {
         });
     }
 };
+
+const recommendProductsController = async (req, res) => {
+    try {
+        const userMessage = req.body.message;
+        const recommendedProducts = await ProductRecommendationService.getRecommendations(userMessage);
+        res.status(200).json({
+            success: true,
+            data: recommendedProducts,
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
+
+
+
 module.exports = {
     addProductController,
     getProductsByUserIdController,
     getAllProducts,
-    deleteProductController
+    deleteProductController,
+    recommendProductsController
 };

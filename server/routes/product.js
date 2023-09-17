@@ -4,6 +4,7 @@ const {
     getProductsByUserIdController,
     getAllProducts,
     deleteProductController,
+    recommendProductsController,
 } = require('../controller/product/product');
 const { addProductImageController, upload: uploadProductImage } = require('../controller/product/productImage');
 
@@ -94,7 +95,31 @@ const router = express.Router();
 
 router.post('/add', addProductController);
 
+/**
+ * @swagger
+ * /product/recommend:
+ *   post:
+ *     summary: Get recommended products based on a message
+ *     tags: [Products]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               message:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: List of recommended products retrieved successfully
+ *       500:
+ *         description: Server error
+ */
 
+router.post('/recommend', recommendProductsController);
+
+module.exports = router;
 
 /**
  * @swagger

@@ -5,6 +5,7 @@ const authRoutes = require('./routes/auth');
 const shopRoutes = require('./routes/shop');
 const productCategoryRoutes = require('./routes/productCategory');
 const productRoutes = require('./routes/product');
+const aiRoutes = require('./routes/ai')
 const connectDB = require('./config/db');
 const app = express();
 
@@ -36,6 +37,7 @@ app.use('/auth', authRoutes);
 app.use('/shop', shopRoutes);
 app.use('/product-category', productCategoryRoutes);
 app.use('/product', productRoutes);
+app.use('/ai', aiRoutes)
 
 app.listen(PORT, () => {
     console.log('Server running ' + PORT);
