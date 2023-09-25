@@ -43,6 +43,8 @@ export default function HomeScreen() {
           ))}
         </View>
       </View>
+
+      <BottomBar />
   
     </SafeAreaView>
   );
