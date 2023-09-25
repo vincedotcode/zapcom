@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllTables } = require('../controller/ai/index');
+const { GetAnnualReportController, getProformaController } = require('../controller/ai/index');
 const router = express.Router();
 
 
@@ -14,16 +14,35 @@ const router = express.Router();
 
 /**
  * @swagger
- * /ai/get:
+ * /ai/report:
  *   get:
- *     summary: Get all AI
+ *     summary: Get Annual Report
  *     tags: [AI]
  *     responses:
  *       200:
- *         description: List of all AI tables retrieved successfully
+ *         description: List of Annual Report
  *       500:
  *         description: Server error
  */
-router.get('/get', getAllTables);
+router.get('/report', GetAnnualReportController);
+
+
+
+
+
+
+/**
+ * @swagger
+ * /ai/proforma:
+ *   get:
+ *     summary: Get all proforma
+ *     tags: [AI]
+ *     responses:
+ *       200:
+ *         description: List of proforma
+ *       500:
+ *         description: Server error
+ */
+router.get('/proforma', getProformaController);
 
 module.exports = router;

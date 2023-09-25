@@ -1,8 +1,23 @@
-const { listTables } = require('../../service/ai/product');
+const { GetAnnualReport, getProforma } = require('../../service/ai/product');
 
-const getAllTables = async (req, res) => {
+const GetAnnualReportController = async (req, res) => {
     try {
-        const products = await listTables();
+        const products = await GetAnnualReport();
+        res.status(200).json({
+            success: true,
+            data: products,
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
+
+const getProformaController = async (req, res) => {
+    try {
+        const products = await getProforma();
         res.status(200).json({
             success: true,
             data: products,
@@ -19,5 +34,6 @@ const getAllTables = async (req, res) => {
 
 
 module.exports = {
-    getAllTables,
+    GetAnnualReportController,
+    getProformaController,
 };

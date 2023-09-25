@@ -71,9 +71,6 @@ const Login = () => {
               autoComplete="off"
             >
               <Div sx={{ mb: 3, mt: 1 }}>
-                <TextField fullWidth id="firstname" label="Username" />
-              </Div>
-              <Div sx={{ mb: 3, mt: 1 }}>
                 <TextField fullWidth name="email" label="Email" />
               </Div>
               <Div sx={{ mb: 2, mt: 1 }}>

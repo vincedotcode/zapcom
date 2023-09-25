@@ -6,5 +6,4 @@ const axios = baseAxios.create({
     }
 });
 
-//todo: define interceptors and other configuration like baseURL, headers etc. here
 export default axios;
