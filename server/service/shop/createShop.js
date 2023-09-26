@@ -7,6 +7,9 @@ require('dotenv').config();
 
 async function deployToVercel(repoName, destPath) {
   const token = process.env.VERCEL_AUTH_TOKEN; 
+  if (shell.exec('npm install -g vercel').code !== 0) {
+    throw new Error('Failed to install Vercel CLI');
+  }
   if (!token) {
     throw new Error('Vercel authentication token is not set.');
   }
