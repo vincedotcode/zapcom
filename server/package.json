@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js --ignore temp/ --ignore template/"
   },
+  "engines": {
+    "node": "16.6.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
