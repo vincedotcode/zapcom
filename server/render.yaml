@@ -1,0 +1,18 @@
+# render.yaml
+services:
+  - type: web
+    name: zapcom
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        value: 'mongodb+srv://admin:admin@zapcom.yjlt3mr.mongodb.net/?retryWrites=true&w=majority'
+      - key: PORT
+        value: '3000'
+      - key: OPENAI_API_KEY
+        value: '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'
+      - key: VERCEL_AUTH_TOKEN
+        value: 'HO2zAYJOpjrdZBPoLloV7HJI'
