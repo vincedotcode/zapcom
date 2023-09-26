@@ -96,8 +96,6 @@ const createShop = async (shopData) => {
     await newShop.save();
     return newShop;
   } finally {
-    console.log(`Emptying temporary directory: ${destPath}`);
-    await fs.emptyDir(destPath);
     console.log(`Temporary directory emptied.`);
   }
 };
